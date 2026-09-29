@@ -65,7 +65,7 @@ Mensagens WhatsApp (decodificadas):
 ## Publicação: próximos passos
 
 **Projeto Cloudflare Pages:** `terra-molhada-emm-auri-14-outubro-2026`
-**URL esperada:** https://terra-molhada-emm-auri-14-outubro-2026.pages.dev/ (as imagens do HTML já apontam para ela)
+**URL real (atribuída pela Cloudflare):** https://terra-molhada-emm-auri-14-outubro-2026-claude.pages.dev/ (o pacote foi refeito e as imagens do HTML apontam para ela)
 
 1. No painel da Cloudflare (conta MATA), criar um projeto **Pages** (não Workers) por **upload direto**, com o nome exato acima, e enviar o ZIP (ou a pasta extraída), que tem `index.html` na raiz e `assets/`.
 2. **Conferir o domínio atribuído.** Se o subdomínio `.pages.dev` vier diferente, por exemplo com sufixo porque o nome já existe, não importar no RD: rodar `python3 build.py publish https://<domínio-real>`, gerar o ZIP de novo e reenviar.
