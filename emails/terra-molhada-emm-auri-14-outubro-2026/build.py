@@ -11,7 +11,7 @@ MODE = sys.argv[1] if len(sys.argv) > 1 else "preview"
 BASE = sys.argv[2].rstrip("/") if len(sys.argv) > 2 else ""
 
 # ---- Parâmetros da campanha -------------------------------------------------
-DIA, MES = "14", "outubro"            # data de ENVIO (a confirmar)
+DIA, MES = "14", "outubro"            # data de ENVIO (confirmada em 29/09/2026)
 CAMPAIGN = "auri_corretores_email_03"
 PREHEADER = ("Fit-out completo instalado: uma laje entra em operação em 1 a 2 meses. "
              "Argumentos prontos para levar ao seu cliente.")

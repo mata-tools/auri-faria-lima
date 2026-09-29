@@ -1,6 +1,6 @@
 # Auri Faria Lima · E-mail 03 para corretores · "Pronto para operar"
 
-Status: **rascunho, HTML de prévia para aprovação**. Nada foi publicado, registrado no Marketing Hub, enviado ou agendado.
+Status: **aprovado em 29/09/2026 · pacote final gerado** (`terra-molhada-emm-auri-14-outubro-2026.zip`). Envio: **14/10/2026**. Ainda não publicado no Cloudflare, não importado no RD, não enviado nem agendado.
 
 ## Estratégia
 
@@ -62,17 +62,27 @@ Mensagens WhatsApp (decodificadas):
 - Visita: "Olá, recebi o e-mail do dia 14 de outubro do Auri Faria Lima para corretores e parceiros e gostaria de agendar uma visita para apresentar as lajes prontas a um cliente."
 - Materiais: "Olá, recebi o e-mail do dia 14 de outubro do Auri Faria Lima para corretores e parceiros e gostaria de receber fotos e materiais de apresentação do empreendimento."
 
-## Pendências antes do pacote final
+## Publicação: próximos passos
 
-1. **Confirmar a data de envio.** Usei 14/10/2026 (quarta, duas semanas após o e-mail 02) como proposta. Ela está nas mensagens de WhatsApp. Depois de confirmada, o projeto passa a se chamar `terra-molhada-emm-auri-pronto-para-operar-{dia}-outubro-2026`.
-2. **Confirmar a vigência da comissão:** 1,25 / 2 aluguéis / + 0,25 até 31/12/2026, conforme o e-mail aprovado de 30/09.
-3. **Confirmar o WhatsApp 5511994174021** como canal vigente desta frente.
-4. Registrar os links no Marketing Hub (aba Links parametrizados). Este ambiente não tem ferramenta de edição de células de planilha, então o registro segue pendente.
-5. Após a aprovação: gerar o ZIP para o Cloudflare Pages (`python3 build.py publish https://<projeto>.pages.dev`), publicar, testar URL e assets sem login, importar no RD e fazer envio de teste.
+**Projeto Cloudflare Pages:** `terra-molhada-emm-auri-14-outubro-2026`
+**URL esperada:** https://terra-molhada-emm-auri-14-outubro-2026.pages.dev/ (as imagens do HTML já apontam para ela)
+
+1. No painel da Cloudflare (conta MATA), criar um projeto **Pages** (não Workers) por **upload direto**, com o nome exato acima, e enviar o ZIP (ou a pasta extraída), que tem `index.html` na raiz e `assets/`.
+2. **Conferir o domínio atribuído.** Se o subdomínio `.pages.dev` vier diferente, por exemplo com sufixo porque o nome já existe, não importar no RD: rodar `python3 build.py publish https://<domínio-real>`, gerar o ZIP de novo e reenviar.
+3. Abrir a URL e cada asset em aba anônima (`/assets/recepcao.jpg`, `/assets/logo-auri.png` etc.) e confirmar que carregam sem login.
+4. No RD Station, importar o e-mail **pela URL pública** (não pelo ZIP), configurar o assunto e o preheader do par 1, o remetente e o descadastro nativo do RD, conferir a prévia e fazer um envio de teste.
+5. Se houver qualquer alteração: novo deploy e nova importação no RD, porque o RD não sincroniza com a URL.
+
+Ressalva: a documentação da Cloudflare estava bloqueada neste ambiente e não pôde ser consultada. Os nomes de menu podem ter mudado, então vale seguir a tela atual.
+
+## Marketing Hub
+
+Linhas prontas em `marketing-hub-links.csv` (colunas A:J da aba **Links parametrizados**), com URLs idênticas às do HTML final. **O registro na planilha segue pendente**, porque este ambiente não tem ferramenta de edição de células. É preciso colar essas linhas como registros novos (campanha `auri_corretores_email_03`, sem substituir as linhas 3:9 do e-mail 02) e depois atualizar o status para publicado/enviado.
 
 ## Verificações executadas
 
 - HTML começa com `<!DOCTYPE html>` e não traz avisos internos nem placeholders.
+- ZIP reaberto e `index.html` extraído auditado: 7 imagens com HTTPS absoluto no domínio do projeto e todas presentes no pacote; nenhum data:, Netlify ou resíduo do e-mail 02; sem dupla codificação.
 - Renderizado no Chromium a ~600 px e a 375 px. A fonte web não carregou no ambiente, então a renderização valeu como teste de fallback em Arial/Helvetica (ver os PNGs).
 - Todos os hrefs extraídos e decodificados; UTMs e mensagens conferidos.
 - **Não verificado:** renderização em clientes de e-mail reais (Outlook, Gmail, Apple Mail) e a prévia do RD.
